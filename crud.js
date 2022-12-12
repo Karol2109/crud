@@ -28,15 +28,15 @@ window.addEventListener("DOMContentLoaded", async (e) => {
         querySnapshot.forEach((doc) => {
             const alumno = doc.data();
             divAlumnos.innerHTML += `
-                <tr class="table-dark">
-                    <td class="table-dark">${alumno.marca}</td>
-                    <td class="table-dark">${alumno.modelo}</td>
-                    <td class="table-dark">${alumno.memoria}</td>
-                    <td class="table-dark">${alumno.procesador}</td>
-                    <td class="table-dark"> ${alumno.ram}</td>
-                    <td class="table-dark">${alumno.pixeles}</td>
-                    <td class="table-dark"><button class="btn btn-danger btnEliminarAlumno" data-id="${doc.id}"><i class="bi bi-trash"></i></button></td>
-                    <td class="table-dark"><button class="btn btn-primary btnEditarAlumno" data-bs-toggle="modal" data-bs-target="#editModal"   data-id="${doc.id}"><i class="bi bi-pencil"></i></button></td>
+                <tr>
+                    <td>${alumno.marca}</td>
+                    <td>${alumno.modelo}</td>
+                    <td>${alumno.memoria}</td>
+                    <td>${alumno.procesador}</td>
+                    <td>${alumno.ram}</td>
+                    <td>${alumno.pixeles}</td>
+                    <td><button class="btn btn-danger btnEliminarAlumno" data-id="${doc.id}"><i class="bi bi-trash"></i></button></td>
+                    <td><button class="btn btn-primary btnEditarAlumno" data-bs-toggle="modal" data-bs-target="#editModal"   data-id="${doc.id}"><i class="bi bi-pencil"></i></button></td>
                 </tr>`;
         });
  
@@ -106,7 +106,7 @@ btnAgregarAlumno.addEventListener("click",()=>{
         return;
     }
 
-    const alumno={ marca, modelo, memoria,procesador,ram,pixeles};
+    const alumno={ marca, modelo, memoria,procesador,pixeles};
 
     if (!editStatus) {
         addDoc(coleccion, alumno);        
@@ -122,21 +122,21 @@ btnAgregarAlumno.addEventListener("click",()=>{
 });
 
 
-const btnGuardarAlumno=document.querySelector("#btneditAlumno");
+const btnGuardarAlumno=document.querySelector("#s");
 btnGuardarAlumno.addEventListener("click",()=>{
-    const marca=document.querySelector("#emarca").value;
     const modelo=document.querySelector("#emodelo").value;
     const memoria=document.querySelector("#ememoria").value;
     const procesador=document.querySelector("#eprocesador").value;
     const ram=document.querySelector("#eram").value;
     const pixeles=document.querySelector("#epixeles").value;
+    
 
-    if(marca=="" || modelo=="" || memoria=="" || procesador=="" || ram=="" || pixeles==""){
+    if(marca=="" || modelo=="" || memoria=="" || procesador=="" || ram==""|| pixeles==""){
         Swal.fire("falta llenar Campos");
         return;
     }
 
-    const alumno={ marca, modelo, memoria,procesador,ram,pixeles};
+    const alumno={ marca, modelo, memoria,procesador,pixeles};
 
     if (editStatus) {
         updateDoc(doc(db, "alumnos", id), alumno);

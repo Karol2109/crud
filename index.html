@@ -143,19 +143,6 @@
             <i class="bi bi-google me-1"></i>
               Google
             </button>
-
- <button
-              type="button"
-              class="btn btn-dark"
-              data-bs-dismiss="modal"
-              id="btnAnonimo"
-            >
-            <i class="bi bi-incognito"></i>
-              Anonimo
-            </button>
-
-
-
             <button
               type="button"
               class="btn btn-success"
@@ -246,7 +233,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="btnAgregarAlumno"></button>
           </div>
           <div class="modal-body" >
-<form  id="formAddAlumno">
+
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">marca</label>
                 <input type="text" class="form-control" id="marca" placeholder="titulo">
@@ -275,7 +262,6 @@
               <textarea class="form-control" id="pixeles" rows="3"></textarea>
             </div>
           </div>
-        </form>
           <div class="modal-footer">
             <button type="button" class="btn btn-success" id="btnGuardarAlumno" >Guardar</button>
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
@@ -284,7 +270,7 @@
       </div>
     </div>
 
-<!-- edit-->
+//modaledit
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
@@ -292,8 +278,7 @@
             <h1 class="modal-title fs-5" id="exampleModalLabel"> <i class="bi bi-plus-circle m-2"></i>EDITAR POSTS</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body" >
-            <form id="formEditAlumno">
+          <div class="modal-body" id="formEditAlumno">
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label">marca</label>
               <input type="text" class="form-control" id="emarca" placeholder="titulo">
@@ -323,9 +308,8 @@
           </div>
             
           </div>
-        </form>
           <div class="modal-footer">
-            <button type="button" class="btn btn-ligth" id="btneditAlumno" >Guardar</button>
+            <button type="button" class="btn btn-ligth" id="editAlumno" >Guardar</button>
             <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cancelar</button>
           </div>
         </div>

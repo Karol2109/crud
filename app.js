@@ -7,8 +7,7 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signInWithPopup,
-  signOut,
-  signInAnonymously
+  signOut
 } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
 
 let user = null;
@@ -20,7 +19,6 @@ const btnCrear = document.querySelector("#btnCrear");
 const btnGoogle = document.querySelector("#btnGoogle");
 const btnIniciar = document.querySelector("#btnIniciar");
 const btnCerrar=document.querySelector("#btnCerrar");
-
 
 btnGoogle.addEventListener('click',async(e)=>{
   e.preventDefault();
@@ -35,29 +33,6 @@ btnGoogle.addEventListener('click',async(e)=>{
   }
  
 })
-
-
-const btnAnonimo=document.querySelector("btnAnonimo");
-btnAnonimo.addEventListener('click', async(e)=>{
-  e.preventDefault();
-      try {
-          const result=await signInAnonymously(auth);
-          user=result.user;
-          bootstrap.Modal.getInstance(document.getElementById('iniciarModal')).hide();
-      } catch (error) {
-          console.log(error)
-          Swal.fire({
-              icon: 'error',
-             title: 'algo ha ocurrido',
-              text: 'por elo momento no es posible realizar esta accion',
-                })
-      }
-  
-  });
-
-
-
-
 const checarEstado=(user=null)=>{
   console.log(user);
   if (user==null) {
@@ -81,8 +56,6 @@ btnCerrar.addEventListener('click',async(e)=>{
   }
   });
   
-
-
   
   
 
@@ -97,7 +70,7 @@ onAuthStateChanged(auth,(user)=>{
   if (user) {
 container.innerHTML=`<h1>BIENVENIDO: ${user.email}</h1>
 <button class="btn btn-ligth btn-lg float-end m-2"  data-bs-toggle="modal" data-bs-target="#addModal"><i class="bi bi-plus-circle m-2"></i>Agregars</button>
-<table class="table table-dark">
+<table class="table table-dark table-striped">
 <tr class="table-dark">
 <td class="table-dark">marca</td>
 <td class="table-dark">modelo</td>
@@ -111,7 +84,7 @@ container.innerHTML=`<h1>BIENVENIDO: ${user.email}</h1>
  
 
 
-<table class="table table-dark" id="lista">
+<table id="lista">
     
   </table>
 
